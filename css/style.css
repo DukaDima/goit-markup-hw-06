@@ -163,6 +163,34 @@ address { font-style: normal; }
     /* opacity: 1; */
 }
 
+.mail-list {
+    display: flex;
+    align-items: center;
+}
+.email {
+    display: flex;
+    height: 50px;
+    width: 360px;
+    margin-right: 12px;
+    align-items: center;
+}
+.mail-imput {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding-left: 15px;
+
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    background-color: var(--hero-footer-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
 /* Оформление заголовков */
 .title-text {
     margin-top: 0px;
@@ -198,7 +226,7 @@ img {
    
     background-color: var(--accent-text-color);
 
-    font-weight: 500;
+    font-weight: 700;
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.06em;
@@ -226,6 +254,31 @@ img {
     background-color: var(--accent-text-color);
     color: var(--primary-color);
 }
+.button.mail-button {
+   display: flex;
+   height: 50px;
+   align-items: center;
+    padding:0 29px;
+
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.06em;
+
+    background-color: var(--accent-text-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.mail-button-text {
+    margin-right: 10px;
+}
+.mail-button-icon {
+    fill: currentColor;
+}
+
+
 
  /*Оформление сраниці Студия  */
 
@@ -657,10 +710,14 @@ margin-right: 30px;
  .adress-container {
      margin-right: 70px;
  }
+ .mail-container {
+     margin-left: auto;
+ }
  .footer-contact {
      display: flex;
  }
- .footer-social-title {
+ .footer-social-title,
+ .footer-mail-title    {
      margin: 12px 0px 20px;
 
     font-weight: 700;
@@ -676,6 +733,10 @@ margin-right: 30px;
      background-color: rgba(255, 255,255, .1);
      color: var(--primary-color);
  }
+
+ /* Окно рассылки */
+
+
 
 
  /* Модальное окно и бекдроп */
@@ -706,7 +767,7 @@ margin-right: 30px;
 
     width: 528px;
     height: 581px;
-    padding: 20px;
+    padding: 40px;
 
     border-radius: 4px;
     box-shadow:  0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -717,30 +778,107 @@ margin-right: 30px;
     transition: transform 250ms var(--cubic);
     
 }
-.scene {
-    width: 250px;
-    height: 400px;
-    border: 3px solid var(--accent-text-color);
+.apply-form {
+    width: 100%;
+    /* border: 1px solid tomato; */
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+  
+}
+.form-field input {
+    width: 100%;
+    margin: 0;
+    padding: 12px 16px 12px 42px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
-    background-color: var(--primary-color);
-    margin: auto;
-    perspective: 800px;
+    transition:  border 250ms var(--cubic);
 }
-.box {
-    height: 100%;
-    margin: auto;
-    background-image: url(../images/paraplan.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: rotateX(-80deg) scale(0.6);
-    transition: transform 500ms var(--cubic);
-    transform-origin: 10px 10px;
-}
-.scene:hover .box {
-    transform: rotateX(0deg) scale(1);
+textarea {
+    resize: none;
 }
 
+.form-field textarea {
+    width: 100%;
+    margin: 0;
+    padding: 12px 16px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+}
+
+.entry-field {
+    position: relative;
+}
+.field-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition:  fill 250ms var(--cubic);
+}
+.form-field input:hover,
+.form-field input:focus,
+.form-field textarea:hover,
+.form-field textarea:focus {
+    cursor: pointer;
+    border: 1px solid var(--accent-text-color);
+
+}
+.form-field input:hover+.field-icon,
+.form-field input:focus+.field-icon {
+    fill: var(--accent-text-color);
+}
+
+
+
+
+.modal-title {
+    margin: 0 0 12px ;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--title-text-color);
+
+}
+.label-text {
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.167;
+    letter-spacing: 0.01em;
+}
+textarea::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+}
+
+.form-button {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 55px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.875;
+    letter-spacing: 0.06em;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    background-color: var(--accent-text-color);
+    color: var(--primary-color);
+
+}
+.button.form-button:hover,
+.button.form-button:focus {
+    background-color: #188CE8;
+}
 
 
 /* Кнопка модального окна */
@@ -758,7 +896,7 @@ margin-right: 30px;
     cursor: pointer;
     width: 31px;
     height: 31px;
-    border: solid 1px var(--title-text-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     color: var(--title-text-color);
     background-color: var(--primary-color);
@@ -766,10 +904,15 @@ margin-right: 30px;
 
 .modal-button:hover,
 .modal-button:focus {
-   border: solid 1px var(--accent-text-color);
+  
    color: var(--accent-text-color);
 }
 .cross,
 .cross :hover {
     fill: currentColor;
 }
+
+
+
+
+/* #icon-check--- id для галочки  */
